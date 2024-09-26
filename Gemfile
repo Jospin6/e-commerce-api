@@ -13,7 +13,10 @@ gem 'devise'
 gem 'cancancan', '~> 3.6', '>= 3.6.1'
 gem 'carrierwave'
 gem 'pg', '~> 1.5', '>= 1.5.4'
-
+gem 'active_model_serializers'
+gem 'jwt'
+gem 'rack-cors'
+gem 'dotenv-rails'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -65,11 +68,14 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  gem 'faker'
 end
 
-group :test do
+group :development, :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
   gem 'rspec-rails', '~> 6.1.0'
+  gem "factory_bot_rails"
 end
