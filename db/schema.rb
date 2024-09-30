@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_09_30_100645) do
+ActiveRecord::Schema[7.0].define(version: 2024_09_30_101429) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,6 +22,19 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_30_100645) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "compte_clients", force: :cascade do |t|
+    t.bigint "client_id", null: false
+    t.string "type_compte"
+    t.string "numero_compte"
+    t.integer "code_compte"
+    t.decimal "solde"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_compte_clients_on_client_id"
+    t.index ["code_compte"], name: "index_compte_clients_on_code_compte", unique: true
+    t.index ["numero_compte"], name: "index_compte_clients_on_numero_compte", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -37,4 +50,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_30_100645) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "compte_clients", "clients"
 end

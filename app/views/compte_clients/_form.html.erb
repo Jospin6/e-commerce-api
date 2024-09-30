@@ -1,0 +1,42 @@
+<%= form_with(model: compte_client) do |form| %>
+  <% if compte_client.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(compte_client.errors.count, "error") %> prohibited this compte_client from being saved:</h2>
+
+      <ul>
+        <% compte_client.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :client_id, style: "display: block" %>
+    <%= form.text_field :client_id %>
+  </div>
+
+  <div>
+    <%= form.label :type_compte, style: "display: block" %>
+    <%= form.text_field :type_compte %>
+  </div>
+
+  <div>
+    <%= form.label :numero_compte, style: "display: block" %>
+    <%= form.text_field :numero_compte %>
+  </div>
+
+  <div>
+    <%= form.label :code_compte, style: "display: block" %>
+    <%= form.number_field :code_compte %>
+  </div>
+
+  <div>
+    <%= form.label :solde, style: "display: block" %>
+    <%= form.text_field :solde %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

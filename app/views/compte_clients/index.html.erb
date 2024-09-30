@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Compte clients</h1>
+
+<div id="compte_clients">
+  <% @compte_clients.each do |compte_client| %>
+    <%= render compte_client %>
+    <p>
+      <%= link_to "Show this compte client", compte_client %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New compte client", new_compte_client_path %>
