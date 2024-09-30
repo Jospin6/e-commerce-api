@@ -1,0 +1,2 @@
+module VirementsHelper
+end

@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Remboursements</h1>
+
+<div id="remboursements">
+  <% @remboursements.each do |remboursement| %>
+    <%= render remboursement %>
+    <p>
+      <%= link_to "Show this remboursement", remboursement %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New remboursement", new_remboursement_path %>

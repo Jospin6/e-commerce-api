@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @virement %>
+
+<div>
+  <%= link_to "Edit this virement", edit_virement_path(@virement) %> |
+  <%= link_to "Back to virements", virements_path %>
+
+  <%= button_to "Destroy this virement", @virement, method: :delete %>
+</div>

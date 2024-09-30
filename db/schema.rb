@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_09_30_103526) do
+ActiveRecord::Schema[7.0].define(version: 2024_09_30_115437) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,6 +49,25 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_30_103526) do
     t.index ["client_id"], name: "index_credits_on_client_id"
   end
 
+  create_table "remboursements", force: :cascade do |t|
+    t.bigint "credit_id", null: false
+    t.decimal "montant_recu"
+    t.date "date_jour"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["credit_id"], name: "index_remboursements_on_credit_id"
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.string "type_transaction"
+    t.decimal "montant"
+    t.bigint "compte_client_id", null: false
+    t.date "date_transaction"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["compte_client_id"], name: "index_transactions_on_compte_client_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -62,6 +81,21 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_30_103526) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "virements", force: :cascade do |t|
+    t.decimal "montant"
+    t.date "date_jour"
+    t.bigint "emeteur_id", null: false
+    t.bigint "receveur_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["emeteur_id"], name: "index_virements_on_emeteur_id"
+    t.index ["receveur_id"], name: "index_virements_on_receveur_id"
+  end
+
   add_foreign_key "compte_clients", "clients"
   add_foreign_key "credits", "clients"
+  add_foreign_key "remboursements", "credits"
+  add_foreign_key "transactions", "compte_clients"
+  add_foreign_key "virements", "compte_clients", column: "emeteur_id"
+  add_foreign_key "virements", "compte_clients", column: "receveur_id"
 end

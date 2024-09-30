@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :virements
+  resources :transactions
+  resources :remboursements
   resources :credits
   resources :compte_clients
   resources :clients
