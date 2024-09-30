@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_09_30_101429) do
+ActiveRecord::Schema[7.0].define(version: 2024_09_30_103526) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -37,6 +37,18 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_30_101429) do
     t.index ["numero_compte"], name: "index_compte_clients_on_numero_compte", unique: true
   end
 
+  create_table "credits", force: :cascade do |t|
+    t.bigint "client_id", null: false
+    t.decimal "montant"
+    t.decimal "taux_interet"
+    t.date "date_debut"
+    t.date "date_fin"
+    t.decimal "reste_non_paye"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_credits_on_client_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -51,4 +63,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_09_30_101429) do
   end
 
   add_foreign_key "compte_clients", "clients"
+  add_foreign_key "credits", "clients"
 end

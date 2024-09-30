@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :credits
   resources :compte_clients
   resources :clients
   devise_for :users
