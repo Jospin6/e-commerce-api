@@ -1,32 +1,12 @@
-<div id="<%= dom_id credit %>">
-  <p>
-    <strong>Client:</strong>
-    <%= credit.client_id %>
-  </p>
 
-  <p>
-    <strong>Montant:</strong>
-    <%= credit.montant %>
-  </p>
+<tr id="<%= dom_id credit %>" class="border-b-[1px] border-gray-400 text-center text-[14px]">
+  <td><%= credit.client_id %></td>
+  <td><%= credit.montant %></td>
+  <td><%= credit.taux_interet %></td>
+  <td><%= credit.date_debut %> - <%= credit.date_fin %></td>
+  <td><%= credit.reste_non_paye %></td>
+  <td>
+    <%= link_to "Voir", credit, class: "rounded-lg py-[2px] px-2 text-white text-[12px] bg-blue-500 font-medium" %>
+  </td>
+</tr>
 
-  <p>
-    <strong>Taux interet:</strong>
-    <%= credit.taux_interet %>
-  </p>
-
-  <p>
-    <strong>Date debut:</strong>
-    <%= credit.date_debut %>
-  </p>
-
-  <p>
-    <strong>Date fin:</strong>
-    <%= credit.date_fin %>
-  </p>
-
-  <p>
-    <strong>Reste non paye:</strong>
-    <%= credit.reste_non_paye %>
-  </p>
-
-</div>

@@ -5,10 +5,21 @@
 </div>
 
 <div id="credits" class="px-4">
-  <% @credits.each do |credit| %>
-    <%= render credit %>
-    <p>
-      <%= link_to "Show this credit", credit %>
-    </p>
-  <% end %>
+  <table class="w-full">
+    <thead>
+      <tr class="border-b-[1px] border-gray-400">
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>Téléphone</th>
+        <th>Adress</th>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @credits.each do |credit| %>
+        <%= render credit %>
+      <% end %>
+    </tbody>
+  </table>
 </div>
