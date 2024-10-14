@@ -5,11 +5,22 @@
 </div>
 
 <div id="transactions" class="px-4">
-  <% @transactions.each do |transaction| %>
-    <%= render transaction %>
-    <p>
-      <%= link_to "Show this transaction", transaction %>
-    </p>
-  <% end %>
+  <table class="w-full">
+    <thead>
+      <tr class="border-b-[1px] border-gray-400">
+        <th>Nom client</th>
+        <th>Transaction</th>
+        <th>Montant</th>
+        <th>Num compte</th>
+        <th>Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @transactions.each do |transaction| %>
+        <%= render transaction %>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 

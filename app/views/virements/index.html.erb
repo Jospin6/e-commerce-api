@@ -5,11 +5,22 @@
 </div>
 
 <div id="virements" class="px-4">
-  <% @virements.each do |virement| %>
-    <%= render virement %>
-    <p>
-      <%= link_to "Show this virement", virement %>
-    </p>
-  <% end %>
+  <table class="w-full">
+    <thead>
+      <tr class="border-b-[1px] border-gray-400">
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>Téléphone</th>
+        <th>Adress</th>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @virements.each do |virement| %>
+        <%= render virement %>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 

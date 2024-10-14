@@ -1,22 +1,10 @@
-<div id="<%= dom_id virement %>">
-  <p>
-    <strong>Montant:</strong>
-    <%= virement.montant %>
-  </p>
 
-  <p>
-    <strong>Date jour:</strong>
-    <%= virement.date_jour %>
-  </p>
-
-  <p>
-    <strong>Emeteur:</strong>
-    <%= virement.emeteur_id %>
-  </p>
-
-  <p>
-    <strong>Receveur:</strong>
-    <%= virement.receveur_id %>
-  </p>
-
-</div>
+<tr id="<%= dom_id virement %>" class="border-b-[1px] border-gray-400 text-center text-[14px]">
+  <td><%= virement.emeteur_id %></td>
+  <td><%= virement.receveur_id %></td>
+  <td><%= virement.montant %></td>
+  <td><%= virement.date_jour%></td>
+  <td>
+    <%= link_to "Voir", virement, class: "rounded-lg py-[2px] px-2 text-white text-[12px] bg-blue-500 font-medium" %>
+  </td>
+</tr>

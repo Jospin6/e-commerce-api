@@ -1,6 +1,5 @@
-<p style="color: green"><%= notice %></p>
 
-<%= render @virement %>
+<%= render partial: "card", locals: { virement: @virement } %>
 
 <div>
   <%= link_to "Edit this virement", edit_virement_path(@virement) %> |
