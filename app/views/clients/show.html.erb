@@ -1,9 +1,106 @@
 
 <%= render partial: "table", locals: { client: @client } %>
 
+<div class="py-4">
+  <div class="flex justify-end">
+    <button class="bg-blue-500 text-white h-[30px] text-[14px] px-4 py-[2px] rounded mr-2" onclick="openPopup()">Credit</button>
+    <button class="bg-blue-500 text-white h-[30px] text-[14px] px-4 py-[2px] rounded mr-2" onclick="openPopupVire()">Virement</button>
+    <button class="bg-blue-500 text-white h-[30px] text-[14px] px-4 py-[2px] rounded" onclick="openPopupTrans()">Transaction</button>
+  </div>
+  <div class="grid grid-cols-6 gap-4">
+    <div class="col-span-3">
+      <div>Transactions</div>
+      <div>
+        <table class="w-full text-[14px]">
+          <thead>
+              <tr class="border-b-[1px] border-gray-400">
+                  <th>Transaction</th>
+                  <th>Montant</th>
+                  <th>Date</th>
+                  <th>Actions</th>
+              </tr>
+          </thead>
+          <tbody>
+                        
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-span-3">
+      <div>Credits</div>
+      <div>
+        <table class="w-full text-[14px]">
+          <thead>
+              <tr class="border-b-[1px] border-gray-400">
+                  <th>Montant</th>
+                  <th>Interet</th>
+                  <th>Reste</th>
+                  <th>Actions</th>
+              </tr>
+          </thead>
+          <tbody>
+                        
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<%# Credit %>
+<div id="myPopup" class="fixed inset-0 flex items-center justify-center z-10 hidden">
+  <div class="bg-white rounded-lg shadow-lg p-6 z-50 max-w-sm w-full">
+    <span class="close cursor-pointer text-gray-500" onclick="closePopup()">&times;</span>
+    <p>Gestion des credits</p>
+  </div>
+  <div class="fixed inset-0 bg-black opacity-50"></div>
+</div>
+
+<%# Virement %>
+<div id="myPopupVire" class="fixed inset-0 flex items-center justify-center z-10 hidden">
+  <div class="bg-white rounded-lg shadow-lg p-6 z-50 max-w-sm w-full">
+    <span class="close cursor-pointer text-gray-500" onclick="closePopupVire()">&times;</span>
+    <p>Gestion des virements</p>
+  </div>
+  <div class="fixed inset-0 bg-black opacity-50"></div>
+</div>
+
+<%# Transaction %>
+<div id="myPopupTrans" class="fixed inset-0 flex items-center justify-center z-10 hidden">
+  <div class="bg-white rounded-lg shadow-lg p-6 z-50 max-w-sm w-full">
+    <span class="close cursor-pointer text-gray-500" onclick="closePopupTrans()">&times;</span>
+    <p>Gestion des transactions</p>
+  </div>
+  <div class="fixed inset-0 bg-black opacity-50"></div>
+</div>
+
+<script>
+  function openPopup() {
+    document.getElementById("myPopup").classList.remove("hidden");
+  }
+    
+  function closePopup() {
+      document.getElementById("myPopup").classList.add("hidden");
+  }
+
+  function openPopupVire() {
+    document.getElementById("myPopupVire").classList.remove("hidden");
+  }
+    
+  function closePopupVire() {
+      document.getElementById("myPopupVire").classList.add("hidden");
+  }
+
+  function openPopupTrans() {
+    document.getElementById("myPopupTrans").classList.remove("hidden");
+  }
+    
+  function closePopupTrans() {
+      document.getElementById("myPopupTrans").classList.add("hidden");
+  }
+</script>
 <div>
   <%= link_to "Edit this client", edit_client_path(@client) %> |
   <%= link_to "Back to clients", clients_path %>
 
-  <%= button_to "Destroy this client", @client, method: :delete %>
+  <%= button_to "Destroy this client", @client, method: :delete, class: 'text-red-500' %>
 </div>
