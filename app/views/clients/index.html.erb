@@ -1,14 +1,26 @@
-<p style="color: green"><%= notice %></p>
 
-<h1>Clients</h1>
-
-<div id="clients">
-  <% @clients.each do |client| %>
-    <%= render client %>
-    <p>
-      <%= link_to "Show this client", client %>
-    </p>
-  <% end %>
+<div class="flex justify-between items-center px-4">
+  <h1 class="text-xl font-[500]">Clients</h1>
+  <%= link_to "Nouveau client", new_client_path, class: "py-3 text-[14px] text-blue-500 block font-medium" %>
 </div>
 
-<%= link_to "New client", new_client_path %>
+<div id="clients" class="min-w-full bg-white py-2 px-4">
+  <table class="w-full">
+    <thead>
+      <tr class="border-b-[1px] border-gray-400">
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>Téléphone</th>
+        <th>Adress</th>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @clients.each do |client| %>
+        <%= render client %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+

@@ -1,27 +1,11 @@
-<div id="<%= dom_id client %>">
-  <p>
-    <strong>Nom:</strong>
-    <%= client.nom %>
-  </p>
 
-  <p>
-    <strong>Prenom:</strong>
-    <%= client.prenom %>
-  </p>
-
-  <p>
-    <strong>Telephone:</strong>
-    <%= client.telephone %>
-  </p>
-
-  <p>
-    <strong>Adress:</strong>
-    <%= client.adress %>
-  </p>
-
-  <p>
-    <strong>Email:</strong>
-    <%= client.email %>
-  </p>
-
-</div>
+<tr id="<%= dom_id client %>" class="border-b-[1px] border-gray-400 text-center text-[14px]">
+  <td><%= client.nom %></td>
+  <td><%= client.prenom %></td>
+  <td><%= client.telephone %></td>
+  <td><%= client.adress %></td>
+  <td><%= client.email %></td>
+  <td>
+    <%= link_to "Voir", client, class: "rounded-lg py-[2px] px-2 text-white text-[12px] bg-blue-500 font-medium" %>
+  </td>
+</tr>

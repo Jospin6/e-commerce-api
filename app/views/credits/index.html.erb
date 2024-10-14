@@ -1,8 +1,10 @@
-<p style="color: green"><%= notice %></p>
 
-<h1>Credits</h1>
+<div class="flex justify-between items-center px-4">
+  <h1 class="text-xl font-[500]">Credits</h1>
+  <%= link_to "Nouveau credit", new_credit_path, class: "py-3 text-[14px] text-blue-500 block font-medium" %>
+</div>
 
-<div id="credits">
+<div id="credits" class="px-4">
   <% @credits.each do |credit| %>
     <%= render credit %>
     <p>
@@ -10,5 +12,3 @@
     </p>
   <% end %>
 </div>
-
-<%= link_to "New credit", new_credit_path %>

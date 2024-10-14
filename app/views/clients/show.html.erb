@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @client %>
+<%= render partial: "table", locals: { client: @client } %>
 
 <div>
   <%= link_to "Edit this client", edit_client_path(@client) %> |

@@ -1,8 +1,10 @@
-<p style="color: green"><%= notice %></p>
 
-<h1>Virements</h1>
+<div class="flex justify-between items-center px-4">
+  <h1 class="text-xl font-[500]">Virements</h1>
+  <%= link_to "Nouveau transaction", new_virement_path, class: "py-3 text-[14px] text-blue-500 block font-medium" %>
+</div>
 
-<div id="virements">
+<div id="virements" class="px-4">
   <% @virements.each do |virement| %>
     <%= render virement %>
     <p>
@@ -11,4 +13,3 @@
   <% end %>
 </div>
 
-<%= link_to "New virement", new_virement_path %>
