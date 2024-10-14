@@ -14,7 +14,7 @@
   <body class="bg-[#F0F2F5]">
     
     <% if !user_signed_in? %>
-      <div class="h-[50px] flex justify-between items-center px-4">
+      <div class="h-[60px] flex justify-between items-center px-4">
         <div class="text-xl font-[500]">banqueGEST</div>
         <div class="rightnav">
           <%= link_to 'connexion', new_user_session_path, class: 'linkbtn' %>
@@ -30,7 +30,7 @@
       </div>
     <% end %>
     
-    <div class="m-auto container bg-white">
+    <div class="m-auto container bg-white min-h-[90vh] h-auto">
       <div class="flex justify-center text-blue-500 h-[40px] items-center">
         <div class="flex items-center">
           <%= fa_icon "home" %> 
