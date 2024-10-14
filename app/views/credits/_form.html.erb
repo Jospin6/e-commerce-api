@@ -11,34 +11,37 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :client_id, style: "display: block" %>
-    <%= form.text_field :client_id %>
+  
+  <%= form.text_field :client_id, class: "h-[30px] rounded shadow hidden" %>
+
+
+  <div class="grid grid-cols-6 gap-4 w-full">
+    <div class="col-span-3">
+      <%= form.label :montant, style: "display: block" %>
+      <%= form.text_field :montant, class: "h-[30px] rounded shadow w-full" %>
+    </div>
+
+    <div class="col-span-3">
+      <%= form.label :taux_interet, style: "display: block" %>
+      <%= form.text_field :taux_interet, class: "h-[30px] rounded shadow w-full" %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :montant, style: "display: block" %>
-    <%= form.text_field :montant %>
-  </div>
+  <div class="grid grid-cols-6 gap-4">
+    <div class="col-span-3">
+      <%= form.label :date_debut, style: "display: block" %>
+      <%= form.date_field :date_debut, class: "h-[30px] rounded shadow" %>
+    </div>
 
-  <div>
-    <%= form.label :taux_interet, style: "display: block" %>
-    <%= form.text_field :taux_interet %>
-  </div>
-
-  <div>
-    <%= form.label :date_debut, style: "display: block" %>
-    <%= form.date_field :date_debut %>
-  </div>
-
-  <div>
-    <%= form.label :date_fin, style: "display: block" %>
-    <%= form.date_field :date_fin %>
-  </div>
+    <div class="col-span-3">
+      <%= form.label :date_fin, style: "display: block" %>
+      <%= form.date_field :date_fin, class: "h-[30px] rounded shadow" %>
+    </div>
+  </div>  
 
   <div>
     <%= form.label :reste_non_paye, style: "display: block" %>
-    <%= form.text_field :reste_non_paye %>
+    <%= form.text_field :reste_non_paye, class: "h-[30px] rounded shadow" %>
   </div>
 
   <div>
