@@ -11,15 +11,55 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <div class="header">
-      <div></div>
-      <div class="rightnav">
-        <%= link_to 'connexion', new_user_session_path, class: 'linkbtn' %>
+  <body class="bg-[#F0F2F5]">
+    
+    <% if !user_signed_in? %>
+      <div class="h-[50px] flex justify-between items-center px-4">
+        <div class="text-xl font-[500]">banqueGEST</div>
+        <div class="rightnav">
+          <%= link_to 'connexion', new_user_session_path, class: 'linkbtn' %>
+        </div>
       </div>
+      <div class="text-center">
+        <p class="text-[20px]">Examen SOAC system banquaire</p>
+      </div>
+    <% else %>
+      <div class="bg-gray-900 flex justify-between items-center h-[60px] px-4 ">
+        <div class="text-xl text-white font-[500]">banqueGEST</div>
+        <div class="text-gray-300"><%= current_user.username %></div>
+      </div>
+    <% end %>
+    
+    <div class="m-auto container bg-white">
+      <div class="flex justify-center text-blue-500 h-[40px] items-center">
+        <div class="flex items-center">
+          <%= fa_icon "home" %> 
+          <%= link_to 'Accueil', root_path, class: 'ml-[5px]' %>
+        </div>
+        <div class="mx-4 text-xl flex items-center">.</div>
+        <div class="flex items-center">
+          <%= fa_icon "user" %> 
+          <%= link_to 'Clients', clients_path, class: 'ml-[5px]' %>
+        </div>
+        <div class="mx-4 text-xl flex items-center">.</div>
+        <div class="">
+          <%= fa_icon "credit-card" %> 
+          <%= link_to 'Credits', credits_path, class: 'ml-[5px]' %>
+        </div>
+        <div class="mx-4 text-xl flex items-center">.</div>
+        <div class="">
+          <%= fa_icon "money" %> 
+          <%= link_to 'Transactions', transactions_path, class: 'ml-[5px]' %>
+        </div>
+        <div class="mx-4 text-xl flex items-center">.</div>
+        <div class="">
+          <%= fa_icon "arrow-right" %> 
+          <%= link_to 'Virements', virements_path, class: 'ml-[5px]' %>
+        </div>
+      </div>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
     </div>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
   </body>
 </html>
