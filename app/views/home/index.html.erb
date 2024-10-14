@@ -1,6 +1,72 @@
+<div class="px-4 pt-4">
+    <% if user_signed_in? %>
+        <div class="grid grid-cols-6 gap-4">
+            <div class="col-span-2 mt-2 shadow rounded-lg h-[80px] p-2">
+                <div class="text-2xl font-bold">11245$</div>
+                <div class="">Montant comptes</div>
+            </div>
+            <div class="col-span-2 mt-2 shadow rounded-lg text-red-500 h-[80px] p-2">
+                <div class="text-2xl font-bold">1450$</div>
+                <div class="">Montant credit</div>
+            </div>
+            <div class="col-span-2 mt-2 shadow rounded-lg h-[80px] p-2">
+                <div class="text-2xl font-bold">356$</div>
+                <div class="">Retraits</div>
+            </div>
 
-<% if user_signed_in? %>
-    <div>
-        sys banque
-    </div>
-<% end %>
+            <div class="col-span-2 mt-2 shadow rounded-lg text-blue-500 h-[80px] p-2">
+                <div class="text-2xl font-bold">890$</div>
+                <div class="">Dépots</div>
+            </div>
+            <div class="col-span-2 mt-2 shadow rounded-lg h-[80px] p-2">
+                <div class="text-2xl font-bold">160</div>
+                <div class="">Clients</div>
+            </div>
+            <div class="col-span-2 mt-2 shadow rounded-lg text-red-500 h-[80px] p-2">
+                <div class="text-2xl font-bold">34</div>
+                <div class="">Credits en cours</div>
+            </div>
+        </div>
+        <div class="grid grid-cols-6 gap-4 mt-4">
+            <div class="col-span-3">
+                <div class="text-md">Les transactions</div>
+                <div>
+                    <table class="w-full text-[14px]">
+                        <thead>
+                            <tr class="border-b-[1px] border-gray-400">
+                                <th>Nom client</th>
+                                <th>Transaction</th>
+                                <th>Montant</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-span-3">
+                <div class="text-md">Les credits</div>
+                <div>
+                    <table class="w-full text-[14px]">
+                        <thead>
+                            <tr class="border-b-[1px] border-gray-400">
+                                <th>Nom client</th>
+                                <th>Montant</th>
+                                <th>Interet</th>
+                                <th>Reste</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    <% end %>
+</div>
+
