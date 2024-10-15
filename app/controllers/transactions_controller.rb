@@ -25,6 +25,7 @@ class TransactionsController < ApplicationController
 
     respond_to do |format|
       if @transaction.save
+        CompteClient.where(id: params[:compte_client_id]).update("solde = solde + ?", params[:montant])
         format.html { redirect_to transaction_url(@transaction), notice: "Transaction was successfully created." }
         format.json { render :show, status: :created, location: @transaction }
       else

@@ -25,6 +25,7 @@ class VirementsController < ApplicationController
 
     respond_to do |format|
       if @virement.save
+        CompteClient.where(id: params[:receveur_id]).update("solde = solde + ?", params[:montant])
         format.html { redirect_to virement_url(@virement), notice: "Virement was successfully created." }
         format.json { render :show, status: :created, location: @virement }
       else
