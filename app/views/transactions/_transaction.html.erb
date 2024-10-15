@@ -1,9 +1,7 @@
 
 <tr id="<%= dom_id transaction %>" class="border-b-[1px] border-gray-400 text-center text-[14px]">
-  <td>Nom client</td>
   <td><%= transaction.type_transaction %></td>
   <td><%= transaction.montant %></td>
-  <td><%= transaction.compte_client_id %></td>
   <td><%= transaction.date_transaction %></td>
   <td>
     <%= link_to "Voir", transaction, class: "rounded-lg py-[2px] px-2 text-white text-[12px] bg-blue-500 font-medium" %>

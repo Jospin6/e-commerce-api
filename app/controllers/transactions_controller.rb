@@ -22,10 +22,13 @@ class TransactionsController < ApplicationController
   # POST /transactions or /transactions.json
   def create
     @transaction = Transaction.new(transaction_params)
+    getcompte = CompteClient.find(params[:compte_client_id])
+    if getcompte
+      getcompte.update("solde = solde + ?", params[:montant])
+    end
 
     respond_to do |format|
       if @transaction.save
-        CompteClient.where(id: params[:compte_client_id]).update("solde = solde + ?", params[:montant])
         format.html { redirect_to transaction_url(@transaction), notice: "Transaction was successfully created." }
         format.json { render :show, status: :created, location: @transaction }
       else

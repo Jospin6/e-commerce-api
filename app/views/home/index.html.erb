@@ -34,7 +34,6 @@
                     <table class="w-full text-[14px]">
                         <thead>
                             <tr class="border-b-[1px] border-gray-400">
-                                <th>Nom client</th>
                                 <th>Transaction</th>
                                 <th>Montant</th>
                                 <th>Date</th>
@@ -42,7 +41,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                        
+                            <% @transactions.each do |transaction| %>
+                                <%= render partial: "transactions/transaction", locals: { transaction: transaction }  %>
+                            <% end %>
                         </tbody>
                     </table>
                 </div>

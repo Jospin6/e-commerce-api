@@ -11,7 +11,7 @@ class ClientsController < ApplicationController
     @client = Client.find(params[:id]) # Assurez-vous de récupérer le client
     @virement = Virement.new
     @transaction = Transaction.new
-    @compte = CompteClient.where("client_id == ?", @client.id)
+    @compte = CompteClient.find(2)
     @compte_client = @client.compte_clients.build
     @credit = @client.credits.build 
   end

@@ -3,7 +3,7 @@
   <div class="col-span-3"><%= render partial: "table", locals: { client: @client } %></div>
 
   <div class="col-span-3">
-      <% if !@client.compte_clients.empty? %>
+      <% if @compte %>
         <%= render partial: "compte_clients/compte_client", locals: {compte_client: @client.compte_clients.first} %>
       <% end %>
   </div>
@@ -12,10 +12,7 @@
 <div class="py-4">
   <div class="flex justify-between">
     <div>
-      
-      <% if !@client.compte_clients %>
-        <button class="bg-blue-500 text-white h-[30px] text-[14px] px-4 py-[2px] rounded mr-2" onclick="openPopupCompte()">créer compte</button>
-      <% end %>
+      <button class="bg-blue-500 text-white h-[30px] text-[14px] px-4 py-[2px] rounded mr-2" onclick="openPopupCompte()">créer compte</button>
     
     </div>
     <div>
@@ -38,7 +35,14 @@
               </tr>
           </thead>
           <tbody>
-                        
+            <% @compte.transactions.each do |transaction| %>
+              <tr class="border-b-[1px] border-gray-400 text-center text-[14px]">
+                <td><%= transaction.type_transaction %></td>
+                <td><%= transaction.montant %></td>
+                <td><%= transaction.date_transaction %></td>
+                <td><%= link_to "Voir", transaction, class: "rounded-lg py-[2px] px-2 text-white text-[12px] bg-blue-500 font-medium" %></td>
+              </tr>
+            <% end %>           
           </tbody>
         </table>
       </div>
