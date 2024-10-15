@@ -2,15 +2,15 @@
     <% if user_signed_in? %>
         <div class="grid grid-cols-6 gap-4">
             <div class="col-span-2 mt-2 shadow rounded-lg h-[80px] p-2">
-                <div class="text-2xl font-bold">11245$</div>
+                <div class="text-2xl font-bold">785$</div>
                 <div class="">Montant comptes</div>
             </div>
             <div class="col-span-2 mt-2 shadow rounded-lg text-red-500 h-[80px] p-2">
-                <div class="text-2xl font-bold">1450$</div>
+                <div class="text-2xl font-bold">400$</div>
                 <div class="">Montant credit</div>
             </div>
             <div class="col-span-2 mt-2 shadow rounded-lg h-[80px] p-2">
-                <div class="text-2xl font-bold">356$</div>
+                <div class="text-2xl font-bold">70$</div>
                 <div class="">Retraits</div>
             </div>
 
@@ -19,11 +19,11 @@
                 <div class="">Dépots</div>
             </div>
             <div class="col-span-2 mt-2 shadow rounded-lg h-[80px] p-2">
-                <div class="text-2xl font-bold">160</div>
+                <div class="text-2xl font-bold">2</div>
                 <div class="">Clients</div>
             </div>
             <div class="col-span-2 mt-2 shadow rounded-lg text-red-500 h-[80px] p-2">
-                <div class="text-2xl font-bold">34</div>
+                <div class="text-2xl font-bold">1</div>
                 <div class="">Credits en cours</div>
             </div>
         </div>
@@ -68,6 +68,34 @@
                         </tbody>
                     </table>
                 </div>
+            </div>
+        </div>
+    <% else %>
+        <div class="grid grid-cols-6 gap-4">
+            <div class="col-span-3 h-[400px] bg-white rounded px-4">
+                <div class="text-center text-xl py-2">Membres du groupe</div>
+                <div>
+                    <p>1. NDAGANO MIHIGO Jospin</p>
+                    <p>2. AGISHA ZIGABE Michael</p>
+                    <p>3. NTWALI MUBERUKA Daniel</p>
+                    <p>4. MUNGUALIWANI MWIRA Esther</p>
+                    <p>5. MUGANZA TOMBO Hubert</p>
+                    <p>6. BYAMUNGU MAJIBU Trésor</p>
+                    <p>7. USHINDI BAHATI Vicky</p>
+                    <p>8. AGANZE BIJIRAMUNGU Eric</p>
+                    <p>9. MUSHAGALUSA BIRHWASHIRWA Christian</p>
+                    <p>10. ANDEMA AMBIKA Raissa</p>
+                    <p>11. MUGISHO MUNYAHALI Basilique</p>
+                    <p>12. SABWE JOSUE DARCIN</p>
+                </div>
+            </div>
+            <div class="col-span-3 h-[400px] bg-white rounded px-4">
+                <div class="text-center text-xl py-2">Fonctionnalités</div>
+                <p>A. Getion de compte clients</p>
+                <p>B. Retrait et dépot d'argent</p>
+                <p>C. Credit</p>
+                <p>D. Virement bancaire</p>
+                <p>E. Authentification</p>
             </div>
         </div>
     <% end %>

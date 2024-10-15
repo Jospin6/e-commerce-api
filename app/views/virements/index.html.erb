@@ -8,18 +8,32 @@
   <table class="w-full">
     <thead>
       <tr class="border-b-[1px] border-gray-400">
-        <th>Nom</th>
-        <th>Prenom</th>
-        <th>Téléphone</th>
-        <th>Adress</th>
-        <th>Email</th>
+        <th>Emeteur</th>
+        <th>Receveur</th>
+        <th>Montant</th>
+        <th>Date</th>
         <th>Actions</th>
       </tr>
     </thead>
     <tbody>
-      <% @virements.each do |virement| %>
-        <%= render virement %>
-      <% end %>
+      <tr class="border-b-[1px] border-gray-400 text-center text-[14px]">
+        <td> jerry nkafu </td>
+        <td>dany ntwali</td>
+        <td>500$</td>
+        <td>2024-10-15</td>
+        <td>
+          <span class="text-blue-500">voir</span>
+        </td>
+      </tr>
+      <tr class="border-b-[1px] border-gray-400 text-center text-[14px]">
+        <td>dany ntwali  </td>
+        <td>jerry nkafu</td>
+        <td>300$</td>
+        <td>2024-10-13</td>
+        <td>
+          <span class="text-blue-500">voir</span>
+        </td>
+      </tr>
     </tbody>
   </table>
 </div>

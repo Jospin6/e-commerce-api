@@ -21,13 +21,16 @@
         </div>
       </div>
       <div class="text-center">
-        <p class="text-[20px]">Examen SOAC system banquaire</p>
+        <p class="text-[20px]">Examen AOSCC system banquaire</p>
       </div>
       <%= yield %>
     <% else %>
       <div class="bg-gray-900 flex justify-between items-center h-[60px] px-4 ">
         <div class="text-xl text-white font-[500]">banqueGEST</div>
-        <div class="text-gray-300"><%= current_user.username %></div>
+        <div class="text-gray-300">
+          <%= link_to "#{current_user.username}", destroy_user_session_path, method: :delete, class: 'rounded-lg block font-[200]' %>
+          <%=  %>
+        </div>
       </div>
       <div class="m-auto container bg-white min-h-[90vh] h-auto px-4">
       <div class="flex justify-center text-blue-500 h-[40px] items-center">
