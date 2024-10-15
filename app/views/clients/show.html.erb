@@ -1,11 +1,28 @@
 
-<%= render partial: "table", locals: { client: @client } %>
+<div class="grid grid-cols-6 gap-4">
+  <div class="col-span-3"><%= render partial: "table", locals: { client: @client } %></div>
+
+  <div class="col-span-3">
+      <% if !@client.compte_clients.empty? %>
+        <%= render partial: "compte_clients/compte_client", locals: {compte_client: @client.compte_clients.first} %>
+      <% end %>
+  </div>
+</div>
 
 <div class="py-4">
-  <div class="flex justify-end">
-    <button class="bg-blue-500 text-white h-[30px] text-[14px] px-4 py-[2px] rounded mr-2" onclick="openPopup()">Credit</button>
-    <button class="bg-blue-500 text-white h-[30px] text-[14px] px-4 py-[2px] rounded mr-2" onclick="openPopupVire()">Virement</button>
-    <button class="bg-blue-500 text-white h-[30px] text-[14px] px-4 py-[2px] rounded" onclick="openPopupTrans()">Transaction</button>
+  <div class="flex justify-between">
+    <div>
+      
+      <% if !@client.compte_clients %>
+        <button class="bg-blue-500 text-white h-[30px] text-[14px] px-4 py-[2px] rounded mr-2" onclick="openPopupCompte()">créer compte</button>
+      <% end %>
+    
+    </div>
+    <div>
+      <button class="bg-blue-500 text-white h-[30px] text-[14px] px-4 py-[2px] rounded mr-2" onclick="openPopup()">Credit</button>
+      <button class="bg-blue-500 text-white h-[30px] text-[14px] px-4 py-[2px] rounded mr-2" onclick="openPopupVire()">Virement</button>
+      <button class="bg-blue-500 text-white h-[30px] text-[14px] px-4 py-[2px] rounded" onclick="openPopupTrans()">Transaction</button>
+    </div>
   </div>
   <div class="grid grid-cols-6 gap-4">
     <div class="col-span-3">
@@ -35,11 +52,16 @@
                   <th>Montant</th>
                   <th>Interet</th>
                   <th>Reste</th>
-                  <th>Actions</th>
               </tr>
           </thead>
           <tbody>
-                        
+            <% @client.credits.each do |credit| %>
+              <tr class="border-b-[1px] border-gray-400 text-center text-[14px]">
+                <td><%= credit.montant %></td>
+                <td><%= credit.taux_interet %></td>
+                <td><%= credit.reste_non_paye %></td>
+              </tr>
+            <% end %>       
           </tbody>
         </table>
       </div>
@@ -76,6 +98,16 @@
   <div class="fixed inset-0 bg-black opacity-50"></div>
 </div>
 
+<%# Create account %>
+<div id="myPopupCompte" class="fixed inset-0 flex items-center justify-center z-10 hidden">
+  <div class="bg-white rounded-lg shadow-lg p-6 z-50 max-w-sm w-full">
+    <span class="close cursor-pointer text-gray-500" onclick="closePopupCompte()">&times;</span>
+    <p>Créeer un compte</p>
+    <%= render 'compte_clients/form', compte_client: @compte_client %>
+  </div>
+  <div class="fixed inset-0 bg-black opacity-50"></div>
+</div>
+
 <script>
   function openPopup() {
     document.getElementById("myPopup").classList.remove("hidden");
@@ -99,6 +131,14 @@
     
   function closePopupTrans() {
       document.getElementById("myPopupTrans").classList.add("hidden");
+  }
+
+   function openPopupCompte() {
+    document.getElementById("myPopupCompte").classList.remove("hidden");
+  }
+    
+  function closePopupCompte() {
+      document.getElementById("myPopupCompte").classList.add("hidden");
   }
 </script>
 <div>

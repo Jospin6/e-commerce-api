@@ -11,29 +11,35 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :client_id, style: "display: block" %>
-    <%= form.text_field :client_id %>
+  <%= form.text_field :client_id, class: "w-full rounded-lg h-[30px] hidden" %>
+ 
+  <div class="grid grid-cols-6 gap-4">
+
+    <div class="col-span-3">
+      <%= form.label :type_compte, style: "display: block" %>
+      <%= form.select :type_compte, options_for_select([
+        ["Courant", "courant"],
+        ["Epargne", "epargne"]
+      ]), { include_blank: true }, class: "w-full rounded-lg h-[35px]" %>
+    </div>
+
+    <div class="col-span-3">
+      <%= form.label :numero_compte, style: "display: block" %>
+      <%= form.text_field :numero_compte, class: "w-full rounded-lg h-[35px]" %>
+    </div>
+
   </div>
 
-  <div>
-    <%= form.label :type_compte, style: "display: block" %>
-    <%= form.text_field :type_compte %>
-  </div>
+  <div class="grid grid-cols-6 gap-4">
+    <div class="col-span-4">
+      <%= form.label :code_compte, style: "display: block" %>
+      <%= form.number_field :code_compte, class: "w-full rounded-lg h-[35px]" %>
+    </div>
 
-  <div>
-    <%= form.label :numero_compte, style: "display: block" %>
-    <%= form.text_field :numero_compte %>
-  </div>
-
-  <div>
-    <%= form.label :code_compte, style: "display: block" %>
-    <%= form.number_field :code_compte %>
-  </div>
-
-  <div>
-    <%= form.label :solde, style: "display: block" %>
-    <%= form.text_field :solde %>
+    <div class="col-span-2">
+      <%= form.label :solde, style: "display: block" %>
+      <%= form.text_field :solde, value: 0, class: "w-full rounded-lg h-[35px]" %>
+    </div>
   </div>
 
   <div>

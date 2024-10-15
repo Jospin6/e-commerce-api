@@ -23,12 +23,14 @@
 
   <div class="mb-2">
     <%= form.label :emeteur_id, style: "display: block" %>
-    <%= form.text_field :emeteur_id, class: "h-[30px] rounded shadow" %>
+    <%= form.select :emeteur_id, CompteClient.all.collect { | compte | 
+        [ "#{compte.client.nom} #{compte.client.prenom}", compte.id ] }, prompt: "Sélectionnez l'emeteur",  class: "w-full rounded-lg h-[35px] shadow" %>
   </div>
 
   <div class="mb-2">
     <%= form.label :receveur_id, style: "display: block" %>
-    <%= form.text_field :receveur_id, class: "h-[30px] rounded shadow" %>
+    <%= form.select :receveur_id, CompteClient.all.collect { | compte | 
+        [ "#{compte.client.nom} #{compte.client.prenom}", compte.id ] }, prompt: "Sélectionnez le receveur",  class: "w-full rounded-lg h-[35px] shadow" %>
   </div>
 
   <div>

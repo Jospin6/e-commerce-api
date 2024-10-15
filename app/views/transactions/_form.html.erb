@@ -12,9 +12,13 @@
   <% end %>
 
   <div class="grid grid-cols-6 gap-4">
+    
     <div class="col-span-3">
       <%= form.label :type_transaction, style: "display: block" %>
-      <%= form.text_field :type_transaction, class: "h-[30px] rounded shadow w-full" %>
+      <%= form.select :type_transaction, options_for_select([
+        ["Dépot", "depot"],
+        ["Retrait", "retrait"]
+      ]), { include_blank: true }, class: "w-full rounded-lg h-[35px] shadow" %>
     </div>
 
     <div class="col-span-3">
@@ -26,6 +30,12 @@
   <div class="mb-2">
     <%= form.label :compte_client_id, style: "display: block" %>
     <%= form.text_field :compte_client_id, class: "h-[30px] rounded shadow" %>
+  </div>
+
+  <div class="mb-2">
+    <%= form.label :compte_client_id, style: "display: block" %>
+    <%= form.select :compte_client_id, CompteClient.all.collect { | compte | 
+        [ "#{compte.client.nom} #{compte.client.prenom}", compte.id ] }, prompt: "Sélectionnez un client",  class: "w-full rounded-lg h-[35px] shadow" %>
   </div>
 
   <div class="mb-2">
