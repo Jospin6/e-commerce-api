@@ -23,14 +23,13 @@
       <div class="text-center">
         <p class="text-[20px]">Examen SOAC system banquaire</p>
       </div>
+      <%= yield %>
     <% else %>
       <div class="bg-gray-900 flex justify-between items-center h-[60px] px-4 ">
         <div class="text-xl text-white font-[500]">banqueGEST</div>
         <div class="text-gray-300"><%= current_user.username %></div>
       </div>
-    <% end %>
-    
-    <div class="m-auto container bg-white min-h-[90vh] h-auto px-4">
+      <div class="m-auto container bg-white min-h-[90vh] h-auto px-4">
       <div class="flex justify-center text-blue-500 h-[40px] items-center">
         <div class="flex items-center">
           <%= fa_icon "home" %> 
@@ -61,5 +60,8 @@
       <p class="alert"><%= alert %></p>
       <%= yield %>
     </div>
+    <% end %>
+    
+    
   </body>
 </html>
